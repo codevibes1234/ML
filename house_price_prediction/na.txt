@@ -1,0 +1,14 @@
+<bound method NDFrame.head of         Id  MSSubClass MSZoning  ...  SaleType  SaleCondition SalePrice
+0        1          60       RL  ...        WD         Normal    208500
+1        2          20       RL  ...        WD         Normal    181500
+2        3          60       RL  ...        WD         Normal    223500
+3        4          70       RL  ...        WD        Abnorml    140000
+4        5          60       RL  ...        WD         Normal    250000
+...    ...         ...      ...  ...       ...            ...       ...
+1455  1456          60       RL  ...        WD         Normal    175000
+1456  1457          20       RL  ...        WD         Normal    210000
+1457  1458          70       RL  ...        WD         Normal    266500
+1458  1459          20       RL  ...        WD         Normal    142125
+1459  1460          20       RL  ...        WD         Normal    147500
+
+[1460 rows x 75 columns]>
