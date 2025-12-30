@@ -1,0 +1,26 @@
+\begin{table}[h!]
+    \centering
+    \small
+    \caption{Confusion matrix for train and test data}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Train Data} & \textbf{Test Data}\\
+    \hline
+\begin{pmatrix}
+203&24&60&57&56\\ 
+46&198&39&28&89\\ 
+35&24&241&61&39\\ 
+70&9&44&219&58\\ 
+44&52&18&45&241\\ 
+\end{pmatrix} 
+&
+\begin{pmatrix}
+0&28&72&0&0\\ 
+0&67&33&0&0\\ 
+0&30&70&0&0\\ 
+0&20&80&0&0\\ 
+0&51&49&0&0\\ 
+\end{pmatrix} 
+    \hline
+    \end{tabular}
+\end{table}

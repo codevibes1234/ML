@@ -1,0 +1,32 @@
+\begin{table}[h!]
+    \centering
+    \small
+    \caption{Classification accuracies on train, validation and test data}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Train Accuracy} & \textbf{Validation Accuracy} & \textbf{Test Accuracy}\\
+    \hline
+    0.7718360071301248 & 0.7672955974842768 & 0.8\\
+    \hline
+    \end{tabular}
+\end{table}
+\begin{table}[h!]
+    \centering
+    \small
+    \caption{Confusion matrix for train and test data}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Train Data} & \textbf{Test Data}\\
+    \hline
+\begin{pmatrix}
+278&6\\ 
+122&155\\ 
+\end{pmatrix} 
+&
+\begin{pmatrix}
+34&0\\ 
+16&30\\ 
+\end{pmatrix}\\ 
+    \hline
+    \end{tabular}
+\end{table}

@@ -1,0 +1,12 @@
+\begin{table}[h!]
+    \centering
+    \small
+    \caption{Percentage of bounded and unbounded support vectors}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Train Accuracy} & \textbf{Test Accuracy}\\
+    \hline
+    42.85248041775457 & 20.071801566579634\\
+    \hline
+    \end{tabular}
+\end{table}

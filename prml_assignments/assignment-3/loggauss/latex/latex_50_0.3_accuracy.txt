@@ -1,0 +1,12 @@
+\begin{table}[h!]
+    \centering
+    \small
+    \caption{Classification accuracies on train and test data}
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Train Accuracy} & \textbf{Test Accuracy}\\
+    \hline
+    0.531 & 0.286\\
+    \hline
+    \end{tabular}
+\end{table}

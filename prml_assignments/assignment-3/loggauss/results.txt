@@ -1,0 +1,225 @@
+-----k= 50 sigma= 0.3 -------
+Train Accuracy
+0.531
+Val Accuracy
+0.32
+Test Accuracy
+0.286
+Train confusion matrix
+[[203  23  61  64  49]
+ [ 50 194  41  25  90]
+ [ 40  18 244  61  37]
+ [ 88  11  48 185  68]
+ [ 33  60  18  53 236]]
+Val confusion matrix
+[[14 26 13  1 46]
+ [ 3 81  8  0  8]
+ [ 8 31 42  0 19]
+ [ 7 34 18  0 41]
+ [18 44 15  0 23]]
+Test confusion matrix
+[[ 1 43 37  0 19]
+ [ 0 82  6  0 12]
+ [ 0 47 32  0 21]
+ [ 0 39 19  0 42]
+ [ 0 57 15  0 28]]
+-----k= 50 sigma= 0.5 -------
+Train Accuracy
+0.527
+Val Accuracy
+0.306
+Test Accuracy
+0.278
+Train confusion matrix
+[[197  18  65  63  57]
+ [ 54 168  46  26 106]
+ [ 38  15 245  60  42]
+ [ 83   6  52 187  72]
+ [ 32  38  22  51 257]]
+Val confusion matrix
+[[ 7 44 12  1 36]
+ [ 3 85  7  0  5]
+ [ 5 37 41  0 17]
+ [ 6 45 14  0 35]
+ [13 52 15  0 20]]
+Test confusion matrix
+[[ 0 71 23  0  6]
+ [ 0 91  4  0  5]
+ [ 0 51 32  0 17]
+ [ 0 65 15  0 20]
+ [ 0 68 16  0 16]]
+-----k= 50 sigma= 0.8 -------
+Train Accuracy
+0.507
+Val Accuracy
+0.308
+Test Accuracy
+0.26
+Train confusion matrix
+[[193  15  63  67  62]
+ [ 60 126  63  26 125]
+ [ 42  11 247  51  49]
+ [ 86   5  54 178  77]
+ [ 29  25  23  53 270]]
+Val confusion matrix
+[[ 4 56  9  1 30]
+ [ 1 87  7  0  5]
+ [ 4 40 41  0 15]
+ [ 8 54 10  0 28]
+ [ 7 57 14  0 22]]
+Test confusion matrix
+[[ 0 80 18  0  2]
+ [ 0 91  6  0  3]
+ [ 0 56 32  0 12]
+ [ 0 78 11  0 11]
+ [ 0 84  9  0  7]]
+-----k= 75 sigma= 0.3 -------
+Train Accuracy
+0.542
+Val Accuracy
+0.3
+Test Accuracy
+0.248
+Train confusion matrix
+[[203  25  57  61  54]
+ [ 51 189  39  26  95]
+ [ 38  23 237  62  40]
+ [ 68   9  43 215  65]
+ [ 36  57  16  51 240]]
+Val confusion matrix
+[[15 20 58  0  7]
+ [ 3 74 23  0  0]
+ [ 1 38 60  0  1]
+ [11 28 61  0  0]
+ [ 7 49 43  0  1]]
+Test confusion matrix
+[[ 0 29 71  0  0]
+ [ 0 77 23  0  0]
+ [ 0 51 47  0  2]
+ [ 0 37 62  0  1]
+ [ 0 60 40  0  0]]
+-----k= 75 sigma= 0.5 -------
+Train Accuracy
+0.538
+Val Accuracy
+0.282
+Test Accuracy
+0.242
+Train confusion matrix
+[[204  20  64  53  59]
+ [ 57 168  48  23 104]
+ [ 39  15 248  55  43]
+ [ 75   5  53 198  69]
+ [ 37  37  23  45 258]]
+Val confusion matrix
+[[ 1 37 62  0  0]
+ [ 0 78 22  0  0]
+ [ 0 38 62  0  0]
+ [ 2 49 49  0  0]
+ [ 0 54 46  0  0]]
+Test confusion matrix
+[[ 0 41 59  0  0]
+ [ 0 82 18  0  0]
+ [ 0 61 39  0  0]
+ [ 0 54 46  0  0]
+ [ 0 69 31  0  0]]
+-----k= 75 sigma= 0.8 -------
+Train Accuracy
+0.5245
+Val Accuracy
+0.278
+Test Accuracy
+0.228
+Train confusion matrix
+[[210  17  63  47  63]
+ [ 69 139  55  20 117]
+ [ 46  13 249  46  46]
+ [ 87   5  52 182  74]
+ [ 38  28  24  41 269]]
+Val confusion matrix
+[[ 0 69 31  0  0]
+ [ 0 87 13  0  0]
+ [ 0 48 52  0  0]
+ [ 0 69 31  0  0]
+ [ 0 63 37  0  0]]
+Test confusion matrix
+[[ 0 70 30  0  0]
+ [ 0 90 10  0  0]
+ [ 0 76 24  0  0]
+ [ 0 85 15  0  0]
+ [ 0 88 12  0  0]]
+-----k= 100 sigma= 0.3 -------
+Train Accuracy
+0.551
+Val Accuracy
+0.26
+Test Accuracy
+0.274
+Train confusion matrix
+[[203  24  60  57  56]
+ [ 46 198  39  28  89]
+ [ 35  24 241  61  39]
+ [ 70   9  44 219  58]
+ [ 44  52  18  45 241]]
+Val confusion matrix
+[[ 2 13 85  0  0]
+ [ 0 70 30  0  0]
+ [ 0 42 58  0  0]
+ [ 1 23 76  0  0]
+ [ 0 41 59  0  0]]
+Test confusion matrix
+[[ 0 28 72  0  0]
+ [ 0 67 33  0  0]
+ [ 0 30 70  0  0]
+ [ 0 20 80  0  0]
+ [ 0 51 49  0  0]]
+-----k= 100 sigma= 0.5 -------
+Train Accuracy
+0.5445
+Val Accuracy
+0.268
+Test Accuracy
+0.276
+Train confusion matrix
+[[217  20  53  53  57]
+ [ 60 172  43  25 100]
+ [ 46  18 233  61  42]
+ [ 81   3  41 214  61]
+ [ 48  39  16  44 253]]
+Val confusion matrix
+[[ 3 20 77  0  0]
+ [ 0 77 23  0  0]
+ [ 0 46 54  0  0]
+ [ 1 34 65  0  0]
+ [ 0 49 51  0  0]]
+Test confusion matrix
+[[ 0 45 55  0  0]
+ [ 0 76 24  0  0]
+ [ 0 38 62  0  0]
+ [ 0 47 53  0  0]
+ [ 0 56 44  0  0]]
+-----k= 100 sigma= 0.8 -------
+Train Accuracy
+0.532
+Val Accuracy
+0.262
+Test Accuracy
+0.26
+Train confusion matrix
+[[193  17  72  59  59]
+ [ 58 150  61  27 104]
+ [ 34  15 252  60  39]
+ [ 69   4  57 206  64]
+ [ 37  33  24  43 263]]
+Val confusion matrix
+[[ 0 30 70  0  0]
+ [ 0 79 21  0  0]
+ [ 0 48 52  0  0]
+ [ 0 45 55  0  0]
+ [ 0 52 48  0  0]]
+Test confusion matrix
+[[ 0 56 44  0  0]
+ [ 0 77 23  0  0]
+ [ 0 47 53  0  0]
+ [ 0 63 37  0  0]
+ [ 0 60 40  0  0]]

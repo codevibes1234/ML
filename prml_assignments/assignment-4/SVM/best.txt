@@ -1,0 +1,6 @@
+Dataset-2:
+a) Polynomial : deg = 7, c = 10
+b) Gaussian : gamma = 1, c = 1
+Dataset-3:
+a) Polynomial : deg = 2, c = 1
+b) Gaussian : gamma = 10, c = 1
