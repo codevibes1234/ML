@@ -14,7 +14,7 @@ y_train = df_train.pop('Survived')
 
 df_train,df_val,y_train,y_val = train_test_split(df_train,y_train,test_size=0.2)
 
-to_be_removed = ['PassengerId','Name','Ticket','Cabin']
+to_be_removed = ['PassengerId','Name','Ticket','Cabin','Fare']
 ids = df_test['PassengerId']
 sex_map = {'male':0,'female':1}
 city_map = {'C':2,'Q':1,'S':0}
@@ -33,11 +33,10 @@ param_dist = {
     'learning_rate': uniform(0.01, 0.2),
     'max_depth': randint(3,10),
     'subsample': uniform(0.6, 0.4),
-    'early_stopping_rounds': randint(3,10)
 }
 
 imputer = ColumnTransformer(
-    transformers=[('mode_fill',mode_imputer,['Embarked']),('mean_fill',mean_imputer,['Age','Fare'])],
+    transformers=[('mode_fill',mode_imputer,['Embarked']),('mean_fill',mean_imputer,['Age'])],
     remainder='passthrough')
 preprocessor = FunctionTransformer(preprocess_data)
 
@@ -50,7 +49,7 @@ df_val = preprocessing.transform(df_val)
 xgbc = XGBClassifier(random_state=42,n_jobs=1)
 random_search = RandomizedSearchCV(estimator=xgbc,param_distributions=param_dist,n_iter=20,cv=5,n_jobs=-1)
 
-random_search.fit(df_train,y_train,eval_set=[(df_val,y_val)],verbose=False)
+random_search.fit(df_train,y_train,verbose=False)
 
 predictions = random_search.predict(df_test)
 # print(accuracy_score(y_pred=predictions,y_true=y_val))
