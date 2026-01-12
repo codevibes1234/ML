@@ -1,0 +1,8 @@
+For categorical data, missing can be added as a new category.
+
+We can change the type of a column to categorical by doing .astype('category')
+
+enable_categorical parameter can be set to true in xgboost.
+It automatically takes care of parameters without the need to encode.
+
+kmeans clustering can be applied on features to give a new feature.
