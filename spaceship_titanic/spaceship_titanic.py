@@ -67,25 +67,25 @@ def preprocess_data(df,is_train=False):
         _,_,side = cabin.split(sep='/')
         return side
     
-    if is_train:
-        df = df[df['Cabin'].notnull()]
-        df.reset_index(drop=True,inplace=True)
-        df['Side'] = pd.Series(get_side(df.loc[idx,'Cabin']) for idx in df.index.to_list())
-    else:
-        side_lst = []
-        for idx in range(len(df)):
-            if pd.isnull(df.loc[idx,'Cabin']):
-                df_fam = df[df['Group'] == df.loc[idx,'Group']]
-                if df_fam['Cabin'].isnull().sum() != len(df_fam):
-                    df_fam = df_fam[df_fam['Cabin'].notnull()]
-                    side_lst.append(pd.Series(get_side(df_fam.loc[idx,'Cabin']) for idx in df_fam.index.to_list()).mode()[0])
-                else:
-                    side_lst.append('S')
-            else:
-                side_lst.append(get_side(df.loc[idx,'Cabin']))
-        df['Side'] = pd.Series(side_lst)
+    # if is_train:
+    #     df = df[df['Cabin'].notnull()]
+    #     df.reset_index(drop=True,inplace=True)
+    #     df['Side'] = pd.Series(get_side(df.loc[idx,'Cabin']) for idx in df.index.to_list())
+    # else:
+    #     side_lst = []
+    #     for idx in range(len(df)):
+    #         if pd.isnull(df.loc[idx,'Cabin']):
+    #             df_fam = df[df['Group'] == df.loc[idx,'Group']]
+    #             if df_fam['Cabin'].isnull().sum() != len(df_fam):
+    #                 df_fam = df_fam[df_fam['Cabin'].notnull()]
+    #                 side_lst.append(pd.Series(get_side(df_fam.loc[idx,'Cabin']) for idx in df_fam.index.to_list()).mode()[0])
+    #             else:
+    #                 side_lst.append('S')
+    #         else:
+    #             side_lst.append(get_side(df.loc[idx,'Cabin']))
+    #     df['Side'] = pd.Series(side_lst)
 
-    df['FamilySize'] = pd.Series(len(df[df['Group'] == df.loc[idx,'Group']]) for idx in df.index.to_list())
+    # df['FamilySize'] = pd.Series(len(df[df['Group'] == df.loc[idx,'Group']]) for idx in df.index.to_list())
 
     # def get_deck(cabin:str):
     #     deck,_,_ = cabin.split(sep='/')
@@ -101,7 +101,7 @@ def preprocess_data(df,is_train=False):
     for col in bool_cols:
         df[col] = df[col].astype(int)
 
-    categorical_cols = ['HomePlanet','Destination','Side']
+    categorical_cols = ['HomePlanet','Destination']
     if is_train:
         for col in categorical_cols:
             unique_values = df[col].unique()
@@ -125,15 +125,21 @@ def preprocess_data(df,is_train=False):
             idx += 1
         return df,ids
 
-param_dist = {
-    'n_estimators': randint(100, 1000),
-    'learning_rate': uniform(0.01, 0.2),
-    'max_depth': randint(3,10),
-    'subsample': uniform(0.6, 0.4)
-}
+# param_dist = {
+#     'n_estimators': randint(100, 1000),
+#     'learning_rate': uniform(0.01, 0.2),
+#     'max_depth': randint(3,10),
+#     'subsample': uniform(0.6, 0.4)
+# }
 
 df_train,y_train = preprocess_data(df_train,True)
-df_train,df_val,y_train,y_val = train_test_split(df_train,y_train,train_size=0.8)
+# print(df_train)
+# df_train,df_val,y_train,y_val = train_test_split(df_train,y_train,train_size=0.8)
+# split_index = int(4 * len(df_train) / 5)+1
+# df_val = df_train.iloc[split_index:,:]
+# y_val = y_train.iloc[split_index:]
+# df_train = df_train.iloc[:split_index,:]
+# y_train = y_train.iloc[:split_index]
 # age = 0
 # while age < 100:
 #     df = df_train[(df_train['Age'] >= age) & (df_train['Age'] < age+20)]
@@ -144,14 +150,15 @@ df_train,df_val,y_train,y_val = train_test_split(df_train,y_train,train_size=0.8
 # print(pd.Series(mutual_info_regression(df_train,y_train),index=df_train.columns))
 
 # test_size = len(df_test)
-# df_test,ids = preprocess_data(df_test)
+df_test,ids = preprocess_data(df_test)
 
 
-xgbr = XGBClassifier(random_state=42,n_jobs=1)
-random_search = RandomizedSearchCV(estimator=xgbr,param_distributions=param_dist,n_iter=20,cv=5,n_jobs=-1)
-random_search.fit(df_train,y_train,verbose=False)
-
-predictions = random_search.predict(df_val)
+xgbr = XGBClassifier(random_state=42,n_jobs=-1,n_estimators=359,learning_rate=0.029083501779240323,max_depth=4,subsample=0.6199585091800037)
+# random_search = RandomizedSearchCV(estimator=xgbr,param_distributions=param_dist,n_iter=20,cv=5,n_jobs=-1)
+# random_search.fit(df_train,y_train,verbose=False)
+# print(random_search.best_params_)
+xgbr.fit(df_train,y_train)
+predictions = xgbr.predict(df_test)
 
 # def find_pred():
 #     cnt = 0
@@ -164,14 +171,14 @@ predictions = random_search.predict(df_val)
 #             cnt += 1
 #     return preds
 
-# sub = pd.DataFrame(pd.Series(predictions),columns = ['Transported'])
-# sub['PassengerId'] = ids
-# sub = sub[['PassengerId','Transported']]
-# sub['Transported'] = sub['Transported'].astype(bool)
-# sub.to_csv('pred.csv',index=False)
+sub = pd.DataFrame(pd.Series(predictions),columns = ['Transported'])
+sub['PassengerId'] = ids
+sub = sub[['PassengerId','Transported']]
+sub['Transported'] = sub['Transported'].astype(bool)
+sub.to_csv('pred.csv',index=False)
 
 # print(df_train.isnull().sum())
 # clf = LogisticRegressionCV(cv=5,solver='saga',penalty='elasticnet',max_iter = 10000, n_jobs = -1, l1_ratios=[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9])
 # clf.fit(df_train,y_train)
 # predictions = clf.predict(df_train)
-print(accuracy_score(y_pred=predictions,y_true=y_val))
+# print(accuracy_score(y_pred=predictions,y_true=y_val))
